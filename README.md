@@ -27,3 +27,14 @@ uv run python scripts/06_plot_results.py
 ## Referência
 
 Brophy, J.; Hammoudeh, Z.; Lowd, D. [Adapting and Evaluating Influence-Estimation Methods for Gradient-Boosted Decision Trees](https://www.jmlr.org/papers/v24/22-0449.html). *Journal of Machine Learning Research*, 24(154):1–48, 2023.
+
+## Dashboard para novas composições
+
+O dashboard aceita composições como `70sio2+20na2o+10cao`, prevê o RI e usa BoostIn para listar e visualizar os pontos de treino que ajudam ou atrapalham.
+
+```bash
+uv sync
+uv run python dashboard/run_dashboard.py
+```
+
+O lançador reutiliza o modelo e o t-SNE em `dashboard/artifacts/`. Se estiverem ausentes, executa o pequeno grid de LightGBM, retreina a melhor configuração em todos os dados e gera a projeção automaticamente.

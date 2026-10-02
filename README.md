@@ -10,18 +10,18 @@ O arquivo de entrada deve estar em `data/refractive_index.parquet`.
 
 ```bash
 uv sync
-uv run python scripts/01_prepare_data.py
-uv run python scripts/02_train_model.py
-uv run python scripts/03_compute_boostin.py
-uv run python scripts/04_rank_influence.py
-uv run python scripts/05_compute_tsne.py
-uv run python scripts/06_plot_results.py
+uv run scripts/01_prepare_data.py
+uv run scripts/02_train_model.py
+uv run scripts/03_compute_boostin.py
+uv run scripts/04_rank_influence.py
+uv run scripts/05_compute_tsne.py
+uv run scripts/06_plot_results.py
 ```
 
 Os resultados intermediários são salvos em `artifacts/` e as imagens em `figures/`. Para refazer somente os gráficos após alterar sua aparência, execute apenas:
 
 ```bash
-uv run python scripts/06_plot_results.py
+uv run scripts/06_plot_results.py
 ```
 
 ## Referência
@@ -34,7 +34,7 @@ O dashboard aceita composições como `70sio2+20na2o+10cao`, prevê o RI e usa B
 
 ```bash
 uv sync
-uv run python dashboard/run_dashboard.py
+uv run dashboard/run_dashboard.py
 ```
 
 O lançador reutiliza o modelo e o t-SNE em `dashboard/artifacts/`. Se estiverem ausentes, executa o pequeno grid de LightGBM, retreina a melhor configuração em todos os dados e gera a projeção automaticamente.
